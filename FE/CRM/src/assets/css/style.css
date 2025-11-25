@@ -1,0 +1,993 @@
+/* ===== Layout tổng thể ===== */
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.layout__body {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.layout__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
+  background: #f3f4f6;
+}
+
+/* ===== Toolbar trang danh sách (cao cố định) ===== */
+.page-toolbar {
+  flex: 0 0 56px;
+  min-height: 56px;
+  max-height: 56px;
+  padding: 0 16px !important;
+  border-bottom: 1px solid #d3d7de;
+  box-sizing: border-box;
+  background-color: #e2e4e9;
+  display: flex;
+  align-items: center;
+}
+
+.page-content {
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ===== Header ứng dụng (logo + điều hướng chính) ===== */
+.app-header {
+  height: 48px;
+  background: #fff;
+  color: #111827;
+  border-bottom: 1px solid #d3d7de;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 10;
+}
+
+.app-header__left,
+.app-header__right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.app-header__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.app-header__nav {
+  display: flex;
+  align-items: center;
+  height: 48px;
+}
+
+.app-header__nav-item {
+  position: relative;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 8px;
+  font-size: 13px;
+  color: #111827;
+  text-decoration: none;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+}
+
+.app-header__nav-text {
+  font-size: 13px;
+  margin-left: 8px;
+  font-family: inherit;
+}
+
+/* Hiệu ứng gạch chân khi hover trên menu */
+.app-header__nav-item:hover {
+  color: #4264f0;
+}
+.app-header__nav-item:hover::after {
+  content: '';
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 0;
+  height: 2px;
+  background: #4264f0;
+  opacity: 0.6;
+  border-radius: 2px;
+}
+
+/* Trạng thái active cho menu */
+.app-header__nav-item.is-active {
+  color: #4264f0;
+  font-weight: 500;
+}
+.app-header__nav-item.is-active::after {
+  content: '';
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 0;
+  height: 2px;
+  background: #4264f0;
+  opacity: 1;
+  border-radius: 2px;
+}
+
+/* ===== Toolbar danh sách khách hàng ===== */
+.customers-toolbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.toolbar-left,
+.toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Nút lọc nhóm khách hàng */
+.customer-filter {
+  width: 185px;
+  height: 32px;
+  padding: 0 8px 0 12px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  border-radius: 4px;
+  font-size: 13px;
+  line-height: 32px;
+  color: #111827;
+  box-sizing: border-box;
+}
+
+.customer-filter__text {
+  font-weight: 600;
+  margin: 0 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Link dạng nút chữ */
+.ms-link {
+  font-size: 13px;
+  color: #4264f0;
+  text-decoration: none;
+  padding: 0 8px;
+  line-height: 32px;
+}
+
+/* Nút icon vuông trên toolbar */
+.toolbar-reload-btn,
+.toolbar-delete-btn {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #d1d5db;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+}
+
+/* ===== Khung tìm kiếm AI (viền gradient) ===== */
+.crm-ai-search-container {
+  width: 282px;
+  height: 32px;
+  position: relative;
+  padding: 1px;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Pseudo-element tạo viền gradient */
+.crm-ai-search-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(251deg, #4262f0 24.05%, #9f73f1 71.93%);
+  border-radius: inherit;
+}
+
+.crm-ai-search-input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border-radius: 3px;
+  padding: 0 16px 0 32px;
+  position: relative;
+  border: none;
+  font-size: 13px;
+  box-sizing: border-box;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+}
+
+/* Nền input khi chưa focus */
+.crm-ai-search-input:not(:focus) {
+  background:
+    linear-gradient(90deg, rgba(66, 98, 240, 0.1) 0%, rgba(159, 115, 241, 0.1) 100%), #fff;
+}
+
+/* Vị trí icon tìm kiếm */
+.crm-ai-search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+/* Badge AI ở cạnh phải */
+.crm-ai-badge {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 16px;
+  padding: 0 6px;
+  border-radius: 4px;
+  background-image: url(../imgs/ai-icon-16.svg);
+  font-size: 11px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+/* ===== Nút công cụ AI (viền gradient) ===== */
+.crm-ai-tool-btn {
+  width: 32px;
+  height: 32px;
+  position: relative;
+  padding: 1px;
+  border: none;
+  background: transparent;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Viền gradient bên ngoài */
+.crm-ai-tool-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(251deg, #4262f0 24.05%, #9f73f1 71.93%);
+  border-radius: inherit;
+}
+
+/* Nền trong giống ô tìm kiếm */
+.crm-ai-tool-btn::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  border-radius: 3px;
+  background:
+    linear-gradient(90deg, rgba(66, 98, 240, 0.1) 0%, rgba(159, 115, 241, 0.1) 100%), #fff;
+  transition:
+    background 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+/* Đảm bảo icon nằm trên nền */
+.crm-ai-tool-btn > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Trạng thái hover */
+.crm-ai-tool-btn:hover::after {
+  background:
+    linear-gradient(90deg, rgba(66, 98, 240, 0.16) 0%, rgba(159, 115, 241, 0.16) 100%), #fff;
+}
+
+/* Trạng thái nhấn */
+.crm-ai-tool-btn:active::after {
+  background:
+    linear-gradient(90deg, rgba(66, 98, 240, 0.22) 0%, rgba(159, 115, 241, 0.22) 100%), #fff;
+  box-shadow: inset 0 0 0 1px rgba(66, 98, 240, 0.35);
+}
+
+/* Trạng thái focus (bàn phím) */
+.crm-ai-tool-btn:focus-visible {
+  outline: none;
+}
+
+/* Viền focus khi dùng bàn phím */
+.crm-ai-tool-btn:focus-visible::after {
+  box-shadow: 0 0 0 2px rgba(66, 98, 240, 0.35);
+}
+
+/* ===== Base chung cho .ms-btn ===== */
+.ms-btn {
+  height: 32px;
+  padding: 0 8px;
+  font-size: 13px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-sizing: border-box;
+}
+
+/* Biến thể nút thêm mới */
+.btn-add {
+  font-weight: 600;
+  width: 85.5px;
+}
+
+/* Biến thể nút import */
+.btn-import {
+  border: 1px solid #4262f0 !important;
+  background-color: #fff;
+  color: #4262f0;
+  width: 136px;
+}
+
+/* Nút vuông nhỏ trên toolbar */
+.toolbar-btn-36,
+.toolbar-btn-55 {
+  box-sizing: border-box;
+  height: 32px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toolbar-btn-36 {
+  width: 36px;
+}
+
+.toolbar-btn-55 {
+  width: 55px;
+  gap: 4px;
+}
+
+/* ===== Bảng dữ liệu (header cố định, sort, chọn dòng) ===== */
+.customers-table,
+.ms-table {
+  width: 100%;
+  height: 100%;
+}
+
+.ms-table {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+/* Vùng cuộn nội dung bảng */
+.ms-table__viewport {
+  flex: 1;
+  overflow: auto;
+}
+
+/* Lưu ý: reset display để tránh lỗi flex/ẩn cột */
+.ms-table__table,
+.ms-table__table thead,
+.ms-table__table tbody,
+.ms-table__table tr,
+.ms-table__table th,
+.ms-table__table td {
+  display: table;
+}
+
+.ms-table__table thead {
+  display: table-header-group;
+}
+
+.ms-table__table tbody {
+  display: table-row-group;
+}
+
+.ms-table__table tr {
+  display: table-row;
+}
+
+.ms-table__table th,
+.ms-table__table td {
+  display: table-cell;
+}
+
+/* Bảng cho phép cuộn ngang */
+.ms-table__table {
+  width: 100%;
+  min-width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+  font-size: 13px;
+  color: #111827;
+}
+
+/* Cột checkbox cố định độ rộng */
+.ms-table__checkbox-col {
+  width: 40px;
+  min-width: 40px;
+  max-width: 40px;
+  padding: 0;
+  text-align: center;
+}
+
+/* Kích thước & canh hàng cơ bản cho ô */
+.ms-table__thead th,
+.ms-table__tbody td {
+  height: 40px;
+  padding: 0 12px;
+  vertical-align: middle;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+}
+
+/* Header cố định khi cuộn */
+.ms-table__thead th {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background: #f2f3f5;
+  border-bottom: 1px solid #d3d7de;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Ô checkbox header không hiển thị text */
+.ms-table__thead th.ms-table__checkbox-col {
+  cursor: default;
+  font-size: 0;
+  line-height: 0;
+}
+
+/* Cột checkbox header cố định ngang */
+.ms-table__thead th.ms-table__checkbox-col {
+  left: 0;
+  z-index: 4;
+  position: sticky;
+  background: #f2f3f5;
+}
+
+/* Ô checkbox trong body cũng cố định */
+.ms-table__tbody td.ms-table__checkbox-col {
+  left: 0;
+  z-index: 2;
+  position: sticky;
+  background: #fff;
+}
+
+/* Border + màu nền cho các dòng */
+.ms-table__tbody td {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Màu nền khi hover dòng */
+.ms-table__row:hover td {
+  background: #f7f8fa;
+}
+
+/* Màu nền khi chọn dòng */
+.ms-table__row.is-selected td {
+  background-color: #e7ebfd !important;
+  border-color: #d3d7de !important;
+}
+
+/* Text dài có dấu "..." */
+.cell-text {
+  display: block;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Ô dạng link màu xanh */
+.link-blue {
+  color: #2f5fe8;
+  text-decoration: none;
+}
+
+.link-blue:hover {
+  text-decoration: underline;
+}
+
+/* Ô số điện thoại có icon */
+.cell-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #2f5fe8;
+}
+
+/* Dòng trạng thái rỗng */
+.ms-table__empty {
+  height: 56px;
+  text-align: center;
+  color: #6b7280;
+}
+
+/* ===== Footer bảng: phân trang & số bản ghi ===== */
+.ms-table__footer {
+  flex: 0 0 56px;
+  height: 56px;
+  border-top: 1px solid #d3d7de;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  font-size: 13px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* Nhóm control phân trang bên phải */
+.ms-table__footer-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Dropdown chọn số bản ghi/trang */
+.ms-table__page-size select {
+  height: 32px;
+  padding: 0 32px 0 12px;
+  font-size: 13px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  background: #fff;
+}
+
+/* Nhóm nút phân trang */
+.ms-table__pager {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Nút chuyển trang */
+.ms-table__pager-btn {
+  width: 32px;
+  height: 32px;
+  background: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.ms-table__pager-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Thông tin range bản ghi cơ bản */
+.ms-table__pager-range {
+  font-size: 13px;
+  color: #111827;
+}
+
+/* Chỉ số rangeFrom / rangeTo in đậm (bản 1) */
+.ms-table__pager-range-number {
+  font-weight: 700;
+}
+
+/* Thông tin range bản ghi hiển thị đầy đủ (bản 2) */
+.ms-table__pager-range {
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+  line-height: 1;
+  font-size: 13px;
+  color: #111827;
+  margin: 0;
+}
+
+/* Chỉ số rangeFrom / rangeTo in đậm (bản 2) */
+.ms-table__pager-range-number {
+  font-weight: 700;
+}
+
+/* ===== Toolbar + form khách hàng ===== */
+/* Thanh toolbar trên form */
+.customers-form-toolbar {
+  height: 56px;
+  min-height: 56px;
+  background: #e2e4e9;
+  border-bottom: 1px solid #d3d7de;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px 0 56px;
+  box-sizing: border-box;
+}
+
+/* Nhóm trái/phải của toolbar form */
+.customers-form-toolbar__left,
+.customers-form-toolbar__right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Tiêu đề "Thêm khách hàng" */
+.customers-form-toolbar__title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 56px;
+  color: #1f2229;
+}
+
+/* Nút đổi layout form */
+.customers-form-toolbar__layout-btn {
+  height: 32px;
+  padding: 0 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  line-height: 32px;
+}
+
+/* Nút 1: Mẫu tiêu chuẩn */
+.customers-form-toolbar__left .customers-form-toolbar__layout-btn:nth-of-type(1) {
+  font-size: 16px;
+  color: #1f2229;
+  font-weight: 500;
+}
+
+/* Nút 2: Sửa bố cục */
+.customers-form-toolbar__left .customers-form-toolbar__layout-btn:nth-of-type(2) {
+  font-size: 13px;
+  color: #4264f0;
+  font-weight: 500;
+}
+
+/* Giữ nguyên màu khi hover */
+.customers-form-toolbar__layout-btn:hover {
+  background: transparent;
+  filter: none;
+  color: inherit;
+}
+
+/* ===== Buttons trên toolbar form ===== */
+.customers-form-toolbar__right .ms-btn {
+  min-width: 80px;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+/* Hủy bỏ */
+.customers-form-toolbar__right .ms-btn--ghost {
+  background: #fff;
+  color: #1f2229;
+  border-color: #d3d7de;
+}
+
+/* Lưu và thêm – ưu tiên cao để không mất màu */
+.customers-form-toolbar__right .ms-btn--secondary {
+  background: #ffffff !important;
+  color: #4264f0 !important;
+  border: 1px solid #4264f0 !important;
+  font-weight: 600;
+}
+
+/* Lưu */
+.customers-form-toolbar__right .ms-btn--primary {
+  background: #4264f0 !important;
+  color: #ffffff !important;
+  border-color: #4264f0 !important;
+  font-weight: 600;
+}
+
+/* Khối chứa toàn bộ nội dung form */
+.customers-form-page {
+  background: #fff;
+  min-height: calc(100vh - 48px - 56px);
+  padding: 16px 16px 16px 56px;
+  box-sizing: border-box;
+}
+
+/* Khung section chính của form */
+.customers-form-section {
+  max-width: 1200px;
+}
+
+/* Tiêu đề section của form */
+.customers-form-section__title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 8px 0 12px;
+  color: #1f2229;
+}
+
+/* Layout form 2 cột (ngang 80px, dọc 24px) */
+.customers-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 180px;
+  row-gap: 24px;
+}
+
+/* Một dòng form: label + input */
+.customers-form-col .form-field {
+  display: grid;
+  grid-template-columns: 160px 489.5px;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 13px;
+}
+
+/* Style label */
+.form-label {
+  font-weight: 400;
+  font-size: 13px;
+  color: #111827;
+}
+
+/* Dấu * bắt buộc */
+.req {
+  color: #ef4444;
+}
+
+/* Input text trong form */
+.form-input {
+  width: 489.5px;
+  height: 32px;
+  padding: 6px 12px 6px 16px;
+  border: 1px solid #d3d7de;
+  border-radius: 3px;
+  font-size: 13px;
+  outline: none;
+  box-sizing: border-box;
+  background: #fff;
+  box-shadow: none;
+}
+
+/* Trạng thái focus của input */
+.form-input:focus {
+  border-color: #4264f0;
+  box-shadow: none;
+}
+
+/* Khối avatar cũ trong form */
+.customers-form-avatar-block {
+  margin: 8px 0 16px;
+}
+
+/* Khung chọn ảnh avatar cũ */
+.avatar-box {
+  width: 96px;
+  height: 112px;
+  border: 1px dashed #d3d7de;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  cursor: pointer;
+  background: #fff;
+}
+
+/* Ẩn input file native để không hiện text mặc định */
+.avatar-box__input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Vòng tròn chứa icon avatar */
+.avatar-box__circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  background: #eef2ff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #4264f0;
+  font-size: 20px;
+}
+
+/* Chữ "Chọn ảnh" dưới avatar */
+.avatar-box__text {
+  font-size: 13px;
+  color: #1f2229;
+}
+
+/* Hover nhẹ cho khung avatar cũ */
+.avatar-box:hover {
+  border-color: #4264f0;
+  background: #f8f9ff;
+}
+
+/* Padding & kích thước cho th/td */
+.ms-table__table thead th,
+.ms-table__table tbody td {
+  padding: 0 12px !important;
+  height: 40px;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+/* Container flex trong header cell */
+.ms-table__th-inner {
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+/* Reset padding/margin cho nội dung trong ô */
+.ms-table__td > *,
+.ms-table__tbody td > * {
+  padding: 0 !important;
+  margin: 0 !important;
+  min-width: 0;
+}
+
+/* Style thông báo lỗi dưới input */
+.form-error {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #ef4444;
+  line-height: 1.2;
+}
+
+/* ===== Avatar (bản mới) ===== */
+.customers-form-avatar {
+  margin: 8px 0 16px;
+}
+
+.customers-form-avatar__label {
+  font-weight: 600;
+  font-size: 18px;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+/* Khung avatar tròn duy nhất */
+.customers-form-avatar__box {
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  border: 1px dashed #d3d7de;
+  background: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* Input file ẩn hoàn toàn */
+.customers-form-avatar__input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Placeholder khi chưa có ảnh */
+.customers-form-avatar__placeholder {
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  background: #f3f4f6;
+}
+
+/* Ảnh preview nằm gọn trong avatar */
+.customers-form-avatar__preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Hover nhẹ cho avatar mới */
+.customers-form-avatar__box:hover {
+  border-color: #4264f0;
+  background: #f8f9ff;
+}
+
+/* ===== Footer bên trái của bảng ===== */
+.ms-table__footer-left {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* Nút filter ngoài cùng bên trái */
+.ms-table__footer-filter-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Mỗi cụm “Tổng số / 903”, “Công nợ / 0” */
+.ms-table__footer-block {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+/* Dòng tiêu đề “Tổng số:”, “Công nợ:” */
+.ms-table__footer-label {
+  font-size: 12px;
+  line-height: 1;
+  color: #6b7280;
+  font-weight: 400;
+}
+
+/* Dòng số ở dưới – đậm hơn */
+.ms-table__footer-value {
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 700;
+  color: #111827;
+}

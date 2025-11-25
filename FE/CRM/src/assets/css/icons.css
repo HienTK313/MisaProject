@@ -1,0 +1,289 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
+
+/**
+ * Icon Base Styles
+ * Defines the core styling for all icon components
+ */
+
+.icon {
+  mask-image: url(../imgs/icon_collection_v2.svg);
+  mask-repeat: no-repeat;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.icon-16 {
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+}
+
+.icon-20 {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+}
+
+.icon-24 {
+  width: 24px;
+  height: 24px;
+  font-size: 24px;
+}
+
+.icon-32 {
+  width: 32px;
+  height: 32px;
+  font-size: 32px;
+}
+
+.icon-48 {
+  width: 48px;
+  height: 48px;
+  font-size: 48px;
+}
+
+.icon::before {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-style: normal;
+  display: inline-block;
+}
+
+/**
+ * Font Awesome Icons
+ * UI icons for customer management interface
+ */
+
+.icon-chevron-down::before {
+  content: '\f078'; /* fa-chevron-down */
+}
+
+.icon-left::before {
+  content: '\f053'; /* fa-chevron-left */
+}
+
+.icon-right::before {
+  content: '\f054'; /* fa-chevron-right */
+}
+
+.icon-more::before {
+  content: '\f141'; /* fa-ellipsis-h (more) */
+}
+
+.icon-file-excel::before {
+  content: '\f1c3'; /* fa-file-excel */
+}
+
+/**
+ * Mask Sprite Icons
+ * Icon positions and colors using SVG sprite masks
+ */
+
+/** Filter icon */
+.icon-filter {
+  mask-position: -272px -176px;
+  background-color: #6b7280;
+}
+
+/** Columns customization icon */
+.icon-cols {
+  background-color: #7a8188;
+}
+
+/** Export icon */
+.icon-export {
+  background-color: #7a8188;
+}
+
+/** User/group icon */
+.icon-user {
+  background-image: url('../imgs/Logo_CRM_App_New.svg');
+}
+
+/** Settings/gear icon */
+.icon-gear {
+  background-color: #c5ccd5;
+}
+
+/** Check/tick icon */
+.icon-check {
+  background-color: #c5ccd5;
+}
+
+/** Customer icon - Primary CRM icon */
+.icon-customer {
+  mask-position: -112px -48px;
+  background-color: #4264f0;
+}
+
+/** Home/dashboard icon */
+.icon-home {
+  mask-position: -0px -272px;
+  background-color: #1f2229;
+}
+
+/** Tag/label icon */
+.icon-tag {
+  mask-position: -160px -304px;
+  background-color: #1f2229;
+}
+
+/** Book/document icon */
+.icon-book {
+  mask-position: -176px -304px;
+  background-color: #1f2229;
+}
+
+/** Shopping cart icon */
+.icon-cart {
+  mask-position: -144px -48px;
+  background-color: #1f2229;
+}
+
+/** Goods/product icon */
+.icon-goods {
+  mask-position: -144px -240px;
+  background-color: #1f2229;
+}
+
+/** Chart/analytics icon */
+.icon-chart {
+  mask-position: -32px -288px;
+  background-color: #1f2229;
+}
+
+/** List view icon */
+.icon-list {
+  mask-position: -48px -272px;
+  background-color: #1f2229;
+}
+
+/** Launcher/app icon */
+.icon-launcher {
+  mask-position: 0px -337px;
+  background-color: #1f2229;
+}
+
+/** Folder icon */
+.icon-folder {
+  mask-position: -208px -177px;
+  background-color: #1f2229;
+}
+
+/** Chevron down icon for dropdowns */
+.icon-chevron-down {
+  mask-position: -48px -32px;
+  background-color: #6b7280;
+}
+
+/** Reload/refresh icon */
+.icon-reload {
+  mask-position: -352px -32px;
+  background-color: #6b7280;
+}
+
+/** Search icon using background image */
+.icon-search {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  width: 16px;
+  height: 16px;
+  background-image: url(../imgs/icon_collection_v2.svg);
+  background-repeat: no-repeat;
+  background-position: 0px -1425px;
+  background-color: transparent;
+}
+
+/** AI customer assistant icon */
+.icon-ai-customer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  background-image: url(../imgs/icon_collection_v2.svg);
+  background-repeat: no-repeat;
+  background-position: -16px -1425px;
+  background-color: transparent;
+}
+.icon-avt {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  border-radius: 50%;
+  background-image: url(../imgs/Image.png);
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+
+/** Plus/add icon */
+.icon-plus {
+  mask-position: -240px -128px;
+  background-color: white;
+}
+
+/** Import icon */
+.icon-import {
+  mask-position: -176px -192px;
+  background-color: #4262f0;
+}
+
+/** Menu/hamburger icon */
+.icon-menu {
+  mask-position: -48px 0px;
+  background-color: #1f2229;
+}
+
+/** Dropdown toggle icon */
+.icon-dropdown {
+  mask-position: -128px -304px;
+  background-color: #6b7280;
+}
+.icon-phone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  width: 16px;
+  height: 16px;
+  background-image: url(../imgs/icon_collection_v2.svg);
+  background-repeat: no-repeat;
+  background-position: -320px -48px;
+  background-color: transparent;
+}
+.icon-delete {
+  mask-position: -193px -1px;
+  background-color: #6b7280;
+}
+.icon-first-page {
+  mask-position: -112px -224px;
+  background-color: #6b7280;
+}
+.icon-prev-page {
+  mask-position: -288px -32px;
+  background-color: #6b7280;
+}
+.icon-next-page {
+  mask-position: -304px -32px;
+  background-color: #6b7280;
+}
+.icon-last-page {
+  mask-position: -128px -224px;
+  background-color: #6b7280;
+}
+.icon-img {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  width: 48px;
+  height: 48px;
+  background-image: url(../imgs/icon_collection_v2.svg);
+  background-repeat: no-repeat;
+  background-position: 0px -848px;
+  background-color: transparent;
+}

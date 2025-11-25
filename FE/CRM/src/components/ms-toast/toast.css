@@ -1,0 +1,126 @@
+/* src/components/ms-toast/toast.css */
+
+.ms-toast-container {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 99999;
+  pointer-events: none;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    sans-serif;
+}
+
+.ms-toast-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ms-toast {
+  min-width: 280px;
+  max-width: 360px;
+
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-left-width: 4px;
+  border-radius: 8px;
+
+  padding: 10px 12px;
+  display: grid;
+  grid-template-columns: 20px 1fr auto;
+  align-items: center;
+  gap: 10px;
+
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+
+  pointer-events: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+/* icon chấm tròn */
+.ms-toast__icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: 0.12;
+}
+
+.ms-toast__message {
+  font-size: 13px;
+  color: #111827;
+  line-height: 1.4;
+}
+
+.ms-toast__close {
+  width: 22px;
+  height: 22px;
+  border: none;
+  background: transparent;
+  color: #6b7280;
+  font-size: 18px;
+  line-height: 22px;
+  cursor: pointer;
+}
+
+/* progress bar */
+.ms-toast__bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 100%;
+  background: currentColor;
+  opacity: 0.2;
+  transform-origin: left center;
+  animation-name: msToastBar;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes msToastBar {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+/* variants */
+.ms-toast--success {
+  color: #16a34a;
+  border-left-color: #16a34a;
+}
+.ms-toast--error {
+  color: #ef4444;
+  border-left-color: #ef4444;
+}
+.ms-toast--warning {
+  color: #f59e0b;
+  border-left-color: #f59e0b;
+}
+.ms-toast--info {
+  color: #4264f0;
+  border-left-color: #4264f0;
+}
+
+/* animation */
+.ms-toast-anim-enter-from,
+.ms-toast-anim-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+.ms-toast-anim-enter-active,
+.ms-toast-anim-leave-active {
+  transition: all 0.18s ease;
+}
+.ms-toast-anim-enter-to,
+.ms-toast-anim-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
